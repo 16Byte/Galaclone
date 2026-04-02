@@ -28,11 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	# firing logic
 	if Input.is_action_just_pressed("ui_down"):
-		var projectile_temp = projectile.instantiate()
-		projectile_temp.direction = -1
-		projectile_temp.position = Vector2(position.x, position.y - fire_position_offset)
-		get_tree().root.add_child(projectile_temp)
-		print("fired projectile")
+		fire_projectile()
 	
 	var input_dir: float = Input.get_axis("ui_left", "ui_right")
 	velocity.x = input_dir * speed
@@ -42,3 +38,10 @@ func _physics_process(delta: float) -> void:
 	
 	position.x = clamp(position.x, bounds.position.x + side_margin, bounds.end.x - side_margin)
 	position.y = bounds.end.y - bottom_offset
+	
+func fire_projectile() -> void:
+	var projectile_temp = projectile.instantiate()
+	projectile_temp.direction = -1
+	projectile_temp.position = Vector2(position.x, position.y - fire_position_offset)
+	get_tree().root.add_child(projectile_temp)
+	print("fired projectile")
