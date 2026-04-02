@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bab5df6lx46lu"]
+
+[ext_resource type="Texture2D" uid="uid://dvtrxarn467hq" path="res://Assets/Art/Sprites/ammo_sheet.png" id="1_f8cdk"]
+[ext_resource type="Script" uid="uid://bqjceklblbxyn" path="res://Scenes/projectile.gd" id="1_yr2qt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yr2qt"]
+radius = 1.5
+height = 8.2
+
+[node name="Projectile" type="Area2D" unique_id=1745853237 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_yr2qt")
+sprite = NodePath("Sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1139205395]
+position = Vector2(0, 0.5)
+shape = SubResource("CapsuleShape2D_yr2qt")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1587703119]
+texture_filter = 1
+texture = ExtResource("1_f8cdk")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(1, 1, 16, 16)

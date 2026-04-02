@@ -3,8 +3,10 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 @export var bottom_offset: float = 40.0
 @export var side_margin: float = 16.0
+@export var fire_position_offset: float = 5.0
 
 @onready var camera: Camera2D = $"../Camera"  # adjust path to your cam
+@onready var projectile = preload("res://Scenes/projectile.tscn")
 
 var screen_size: Vector2
 
@@ -23,6 +25,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var bounds = get_screen_bounds()
+	
+	# firing logic
+	if Input.is_action_just_pressed("ui_down"):
+		var projectile_temp = projectile.instantiate()
+		projectile_temp.direction = -1
+		projectile_temp.position = Vector2(position.x, position.y - fire_position_offset)
+		get_tree().root.add_child(projectile_temp)
 	
 	var input_dir: float = Input.get_axis("ui_left", "ui_right")
 	velocity.x = input_dir * speed
