@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://duewt82dqlpmm"]
 
-[ext_resource type="Script" uid="uid://ci586dw3infge" path="res://Scenes/player_controller.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://ci586dw3infge" path="res://Scripts/player_controller.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://3nv5tkyjo77d" path="res://Assets/Art/Sprites/player_sheet.png" id="1_v0iea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
@@ -8,7 +8,7 @@ size = Vector2(17, 17)
 
 [node name="Player" type="CharacterBody2D" unique_id=1089421597]
 script = ExtResource("1_cvnsp")
-SPEED = 111.26
+bottom_offset = 26.665
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1623277017]
 
