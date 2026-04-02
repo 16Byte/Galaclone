@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 		projectile_temp.direction = -1
 		projectile_temp.position = Vector2(position.x, position.y - fire_position_offset)
 		get_tree().root.add_child(projectile_temp)
+		print("fired projectile")
 	
 	var input_dir: float = Input.get_axis("ui_left", "ui_right")
 	velocity.x = input_dir * speed

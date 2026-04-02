@@ -17,3 +17,12 @@ func get_spawn_y() -> float:
 	
 func is_out_of_bounds(pos: Vector2) -> bool:
 	return not bounds.grow(32.0).has_point(pos)
+	
+func get_bounds() -> Rect2:
+	return bounds
+	
+func _ready() -> void:
+	get_tree().root.size_changed.connect(_on_resize)
+	
+func _on_resize() -> void:
+	PlayArea.initialize(get_tree().root.get_camera_2d(), get_tree().root.get_visible_rect())

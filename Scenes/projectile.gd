@@ -10,3 +10,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position.y += speed * direction * delta
+	
+	if not PlayArea.get_bounds().has_point(global_position):
+		queue_free()
+		print("deleted projectile")
