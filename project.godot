@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayArea="*uid://75d6jq32vkik"
-GameManager="*uid://b5w2g2wi25jmo"
+PlayArea="*res://Scripts/PlayArea.gd"
+GameManager="*res://Scripts/game_manager.gd"
 
 [display]
 
